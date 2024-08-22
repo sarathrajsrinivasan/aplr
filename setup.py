@@ -36,7 +36,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     packages=["aplr"],
     install_requires=["numpy>=1.11"],
-    python_requires=">=3.9",
+    python_requires=">=3.10",
     classifiers=["License :: OSI Approved :: MIT License"],
     license="MIT",
     platforms=["Windows", "Linux", "MacOS"],
