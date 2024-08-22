@@ -17,6 +17,15 @@ jobs:
           python --version
           pip --version
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Temp step
+        run : |
+          python --version
+          pip --version
+          
       - name: Build wheels
         run: pipx run cibuildwheel==2.18.0
 
