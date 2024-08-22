@@ -12,6 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Temp step
+        run : |
+          python --version
+          pip --version
+
       - name: Build wheels
         run: pipx run cibuildwheel==2.18.0
 
