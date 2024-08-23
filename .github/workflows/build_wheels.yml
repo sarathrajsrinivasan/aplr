@@ -15,6 +15,8 @@ jobs:
       - name: Install GCC 11
         run : |
           brew install gcc@11
+          brew install pypy
+          brew install pybind11
           
       - name: Build wheels
         run: pipx run cibuildwheel==2.18.0
