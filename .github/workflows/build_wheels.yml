@@ -19,12 +19,12 @@ jobs:
           brew install pybind11
           
       - name: Build wheels
-        run: pipx run cibuildwheel==2.18.0
+        run: pipx run cibuildwheel==2.17.0
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: cibw-wheels-${{ matrix.os }}-${{ strategy.job-index }}
-          path: ./wheelhouse/*.whl
+     # - uses: actions/upload-artifact@v4
+     #   with:
+     #     name: cibw-wheels-${{ matrix.os }}-${{ strategy.job-index }}
+     #     path: ./wheelhouse/*.whl
     
     #steps:
     #  - uses: actions/checkout@v4
