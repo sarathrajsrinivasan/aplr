@@ -10,11 +10,17 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-13, macos-14]
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Set macOS deployment target
+        run: echo "MACOSX_DEPLOYMENT_TARGET=$(sw_vers -productVersion | cut -d '.' -f 1-2)" >> $GITHUB_ENV
+
+      - name: Check macOS deployment target
+        run: echo "Deployment target version is ${{ env.MACOSX_DEPLOYMENT_TARGET }} / ${MACOSX_DEPLOYMENT_TARGET}"
+      
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.20.0
         env:
           CIBW_SKIP: "*musllinux*"
-          CIBW_ENVIRONMENT: MACOSX_DEPLOYMENT_TARGET=10.14
       - uses: actions/upload-artifact@v4
         with:
           name: cibw-wheels-${{ matrix.os }}-${{ strategy.job-index }}
